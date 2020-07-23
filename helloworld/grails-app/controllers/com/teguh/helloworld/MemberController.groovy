@@ -4,7 +4,7 @@ class MemberController {
     MemberService memberService
     def index(){
         def response = memberService.list(params)
-        [member: response.list, total: response.count]
+        [memberList: response.list, total: response.count]
     }
     def details(Integer id){
         def response = memberService.getById(id)

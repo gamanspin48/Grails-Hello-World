@@ -7,7 +7,7 @@ class MemberService {
         Member member = new Member(params)
         def response = AppUtil.saveResponse(false,member)
         if (member.validate()){
-            member.save(flush:true)
+            member.save()
             if (!member.hasErrors()){
                 response.isSuccess = true
             }
@@ -19,7 +19,7 @@ class MemberService {
         member.properties = params
         def response = AppUtil.saveResponse(false,member)
         if (member.validate()){
-            member.save(flush:true)
+            member.save(flush: true)
             if (!member.hasErrors()){
                 response.isSuccess = true
             }
@@ -39,10 +39,10 @@ class MemberService {
                 like(params.colName,"%"+params.colValue+"%")
             }
             if(!params.sort){
-                order(propertyName: "id", direction: "desc")
+                order("id", "desc")
             }
         }
-        return [List:memberList, count: memberList.size()]
+        return [list: memberList, count: memberList.size()]
     }
 
     def delete(Member member){
