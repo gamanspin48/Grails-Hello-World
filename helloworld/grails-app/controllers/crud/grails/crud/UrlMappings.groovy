@@ -1,4 +1,4 @@
-package com.teguh
+package crud.grails.crud
 
 class UrlMappings {
 

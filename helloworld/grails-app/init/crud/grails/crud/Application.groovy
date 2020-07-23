@@ -1,4 +1,4 @@
-package com.teguh
+package crud.grails.crud
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration
