@@ -1,0 +1,6 @@
+#Tue, 21 Jul 2020 13:17:51 +0700
+
+info.app.version=0.1
+info.app.name=helloworld
+grails.env=production
+info.app.grailsVersion=4.0.4
