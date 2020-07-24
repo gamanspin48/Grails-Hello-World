@@ -19,7 +19,7 @@ class MemberService {
         member.properties = params
         def response = AppUtil.saveResponse(false,member)
         if (member.validate()){
-            member.save(flush: true)
+            member.save()
             if (!member.hasErrors()){
                 response.isSuccess = true
             }
@@ -42,12 +42,12 @@ class MemberService {
                 order("id", "desc")
             }
         }
-        return [list: memberList, count: memberList.size()]
+        return [list: memberList, count: Member.count()]
     }
 
     def delete(Member member){
         try {
-            member.delete(flush: true)
+            member.delete()
         }catch(Exception e){
             println(e.getMessage())
             return false
