@@ -12,5 +12,6 @@
 //= require ocb.message.box
 //= require jquery-confirm
 //= require ocb.init
+//= require ocb.ajax
 //= require_self
 

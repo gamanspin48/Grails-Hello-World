@@ -1,7 +1,9 @@
 package com.teguh.helloworld
 
+import grails.gorm.transactions.Transactional
 import grails.web.servlet.mvc.GrailsParameterMap
 
+@Transactional
 class MemberService {
     def save(GrailsParameterMap params){
         Member member = new Member(params)
@@ -19,7 +21,7 @@ class MemberService {
         member.properties = params
         def response = AppUtil.saveResponse(false,member)
         if (member.validate()){
-            member.save()
+            member.save(flush: true)
             if (!member.hasErrors()){
                 response.isSuccess = true
             }
@@ -47,7 +49,7 @@ class MemberService {
 
     def delete(Member member){
         try {
-            member.delete()
+            member.delete(flush:true)
         }catch(Exception e){
             println(e.getMessage())
             return false
